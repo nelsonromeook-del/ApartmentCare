@@ -1,77 +1,55 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./AdminDash.css";
+import { Navigate, useNavigate } from "react-router-dom";
+import "./AdminDash.css"
 
-function AdminDash({ announcements, setAnnouncements, issues, setIssues, setToast }) {
-  const [announcementText, setAnnouncementText] = useState("");
+function AdminDash({ user, issues, setIssues, setAnnouncements, setToast, setCurrentUser }) {
+  const [text, setText] = useState("");
   const navigate = useNavigate();
 
-  // Post a new announcement
-  const postAnnouncement = () => {
-    if (!announcementText.trim()) return;
+  if (!user || user.role !== "admin") return <Navigate to="/" />;
 
-    setAnnouncements([{ text: announcementText, timestamp: Date.now() }, ...announcements]);
-    setToast("New announcement posted!");
-    setAnnouncementText("");
+  const postAnnouncement = (e) => {
+    e.preventDefault();
+    if (!text) return;
+    setAnnouncements(prev => [...prev, text]);
+    setText("");
+    setToast("Announcement Posted 📢");
   };
 
-  // Update issue status
   const updateStatus = (id, status) => {
-    setIssues(
-      issues.map((issue) =>
-        issue.id === id ? { ...issue, status } : issue
-      )
-    );
-    setToast(`Issue #${id} marked as "${status}" ✅`);
+    setIssues(prev => prev.map(i => i.id === id ? { ...i, status } : i));
+    setToast("Status Updated ✅");
   };
 
-  // Logout with 4-second delay
   const logout = () => {
-    setToast("Logging out");
-    setTimeout(() => navigate("/"), 4000);
+    localStorage.removeItem("currentUser");
+    setCurrentUser(null);
+    setToast("Logged Out 👋");
+    navigate("/");
   };
 
   return (
-    <div className="dashboard">
+    <div className="admin-dashboard">
       <h1>Admin Dashboard</h1>
 
-      {/* Post Announcement */}
-      <div className="announcement-form">
-        <input
-          type="text"
-          placeholder="Post announcement..."
-          value={announcementText}
-          onChange={(e) => setAnnouncementText(e.target.value)}
-        />
-        <button onClick={postAnnouncement}>Post Announcement</button>
-      </div>
+      <h2>Issues</h2>
+      {issues.map(i => (
+        <div key={i.id} className="issue">
+          <p>House {i.houseNumber}: {i.description}</p>
+          <select value={i.status} onChange={e => updateStatus(i.id, e.target.value)}>
+            <option>Pending</option>
+            <option>In-Progress</option>
+            <option>Resolved</option>
+          </select>
+        </div>
+      ))}
 
-      {/* Tenant Issues */}
-      <div className="tenant-issues">
-        <h2>Tenant Issues</h2>
-        {issues.length === 0 ? (
-          <p>No issues reported yet.</p>
-        ) : (
-          <ul>
-            {issues.map((issue) => (
-              <li key={issue.id}>
-                <strong>{issue.house}</strong> — {issue.description} <br />
-                Status: <em>{issue.status}</em>
-                <div className="issue-actions">
-                  <button onClick={() => updateStatus(issue.id, "In Progress")}>
-                    In Progress
-                  </button>
-                  <button onClick={() => updateStatus(issue.id, "Resolved")}>
-                    Resolved
-                  </button>
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+      <form onSubmit={postAnnouncement}>
+        <input placeholder="Write announcement" value={text} onChange={e => setText(e.target.value)} required />
+        <button>Post Announcement</button>
+      </form>
 
-      <button className="logout-btn" onClick={logout}>Logout</button>
+      <button className="logout" onClick={logout}>Logout</button>
     </div>
   );
 }

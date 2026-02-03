@@ -1,71 +1,38 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./LoginSignUp.css";
-function Signup({ setToast, setCurrentUser }) {
-  const [name, setName] = useState("");
-  const [houseNumber, setHouseNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+import "./LoginSignUp.css"
+
+function Signup({ users, setUsers, setCurrentUser, setToast }) {
+  const [form, setForm] = useState({ name: "", email: "", houseNumber: "", password: "" });
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Save the new user for the dashboard
-    setCurrentUser({
-      name,
-      houseNumber,
-      email,
-    });
+    if (users.some(u => u.houseNumber === form.houseNumber)) {
+      setToast("House number already exists ❌");
+      return;
+    }
 
-    // Show welcome toast
-    setToast(`Welcome ${name}! Your account has been created 🎉`);
-
-    // Redirect to user dashboard
+    const newUser = { ...form, id: Date.now(), role: "user" };
+    setUsers(prev => [...prev, newUser]);
+    setCurrentUser(newUser);
+    localStorage.setItem("currentUser", JSON.stringify(newUser));
+    setToast(`Welcome ${form.name}! Your account has been created 🎉`);
     navigate("/user-dashboard");
   };
 
   return (
     <div className="auth-container">
       <h1>Create Account</h1>
-
       <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-
-        <input
-          placeholder="Full Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-
-        <input
-          placeholder="House Number"
-          value={houseNumber}
-          onChange={(e) => setHouseNumber(e.target.value)}
-          required
-        />
-
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-
-        <button type="submit">Create Account</button>
+        <input type="text" placeholder="Full Name" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
+        <input type="email" placeholder="Email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required />
+        <input type="text" placeholder="House Number" value={form.houseNumber} onChange={e => setForm({ ...form, houseNumber: e.target.value })} required />
+        <input type="password" placeholder="Password" value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} required />
+        <button>Create Account</button>
       </form>
-
-      <p onClick={() => navigate("/")} className="link">
-        Back to Login
-      </p>
+      <p onClick={() => navigate("/")} className="link">Back to Login</p>
     </div>
   );
 }

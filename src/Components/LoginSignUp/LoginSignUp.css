@@ -1,0 +1,46 @@
+/* Login & Signup forms */
+.login-area, .signup-area {
+  max-width: 400px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.login-form, .signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label, .signup-form label {
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.login-form input, .signup-form input,
+.login-form select, .signup-form select {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.login-form button, .signup-form button {
+  margin-top: 15px;
+}
+
+.login-area h1, .signup-area h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.login-area p {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.login-area p button {
+  font-weight: 600;
+}

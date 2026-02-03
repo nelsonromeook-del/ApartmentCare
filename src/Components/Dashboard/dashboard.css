@@ -1,0 +1,77 @@
+/* User Dashboard styles */
+.user-dashboard {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.user-dashboard h1 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 25px;
+}
+
+.post-issue, .issue-list, .alerts {
+  margin-bottom: 30px;
+}
+
+.post-issue h2, .issue-list h2, .alerts h2 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.post-issue form {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-issue input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.post-issue button {
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.post-issue button:hover {
+  background-color: #218838;
+}
+
+.issue-list ul, .alerts ul {
+  padding-left: 20px;
+}
+
+.issue-list li {
+  padding: 10px;
+  border-left: 5px solid #007bff;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+}
+
+.status-pending {
+  border-left-color: #ffc107;
+}
+
+.status-resolved {
+  border-left-color: #28a745;
+}
+
+.alerts li {
+  background-color: #e9ecef;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+}

@@ -1,16 +1,170 @@
-# React + Vite
+# ApartmentCare
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**ApartmentCare** is a web-based apartment issue management platform that allows residents to log in, report issues within their apartment, and receive updates or alerts from the landlord or administrator. The platform improves communication, transparency, and response time for apartment management.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
 
-## React Compiler
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Target Users](#target-users)
+- [Problem Being Solved](#problem-being-solved)
+- [Technology Stack](#technology-stack)
+- [File Structure](#file-structure)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Future Enhancements](#future-enhancements)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Project Overview
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+ApartmentCare centralizes apartment issue reporting and management. Residents can report problems such as water leaks or broken lights, view the status of their reports, and receive announcements from the administrator. Admins can manage tenant issues, post announcements, and update issue statuses.
+
+---
+
+## Features
+
+### **For Residents (Users):**
+- Login with house number and password.
+- Report apartment issues (CRUD: Create and View).
+- View the status of their submitted issues: Pending, In Progress, Resolved.
+- Receive notifications for new announcements.
+- Logout with a loading screen.
+
+### **For Admins:**
+- Login with admin credentials.
+- Post announcements for all residents.
+- View reported issues from tenants along with their house number.
+- Update issue status to In Progress or Resolved.
+- Logout with a loading screen.
+
+### **Shared Features:**
+- Toast notifications for events like login, logout, new account creation, and new announcements.
+- Client-side routing using React Router for seamless navigation.
+
+---
+
+## Target Users
+
+- Urban apartment residents who want an organized way to report maintenance issues.
+- Small-to-medium landlords or apartment administrators managing multiple tenants.
+
+---
+
+## Problem Being Solved
+
+In many apartment complexes:
+- Residents report issues via WhatsApp or verbal complaints.
+- Issues get lost or ignored.
+- There is no clear status tracking.
+- Communication between residents and landlords is poor.
+
+**ApartmentCare** solves this by providing:
+- Centralized issue reporting.
+- Real-time updates on issue status.
+- Clear communication channels via announcements.
+
+---
+
+## Technology Stack
+
+- **Frontend:** React.js
+- **Routing:** React Router
+- **State Management:** useState (React Hooks)
+- **Styling:** CSS (custom)
+- **Version Control:** Git/GitHub
+
+---
+
+## File Structure
+# ApartmentCare
+
+**ApartmentCare** is a web-based apartment issue management platform that allows residents to log in, report issues within their apartment, and receive updates or alerts from the landlord or administrator. The platform improves communication, transparency, and response time for apartment management.
+
+---
+
+## Project Overview
+
+ApartmentCare centralizes apartment issue reporting and management. Residents can report problems such as water leaks or broken lights, view the status of their reports, and receive announcements from the administrator. Admins can manage tenant issues, post announcements, and update issue statuses.
+
+---
+
+## Features
+
+### **For Residents (Users):**
+- Login with house number and password.
+- Report apartment issues (CRUD: Create and View).
+- View the status of their submitted issues: Pending, In Progress, Resolved.
+- Receive notifications for new announcements.
+- Logout with a loading screen.
+
+### **For Admins:**
+- Login with admin credentials.
+- Post announcements for all residents.
+- View reported issues from tenants along with their house number.
+- Update issue status to In Progress or Resolved.
+- Logout with a loading screen.
+
+### **Shared Features:**
+- Toast notifications for events like login, logout, new account creation, and new announcements.
+- Client-side routing using React Router for seamless navigation.
+
+---
+
+## Target Users
+
+- Urban apartment residents who want an organized way to report maintenance issues.
+- Small-to-medium landlords or apartment administrators managing multiple tenants.
+
+---
+
+## Problem Being Solved
+
+In many apartment complexes:
+- Residents report issues via WhatsApp or verbal complaints.
+- Issues get lost or ignored.
+- There is no clear status tracking.
+- Communication between residents and landlords is poor.
+
+**ApartmentCare** solves this by providing:
+- Centralized issue reporting.
+- Real-time updates on issue status.
+- Clear communication channels via announcements.
+
+---
+
+## Technology Stack
+
+- **Frontend:** React.js
+- **Routing:** React Router
+- **State Management:** useState (React Hooks)
+- **Styling:** CSS (custom)
+- **Version Control:** Git/GitHub
+
+---
+
+## File Structure
+ApartmentCare/
+├─ src/
+│ ├─ Components/
+│ │ ├─ LoginSignUp/
+│ │ │ ├─ Login.jsx
+│ │ │ ├─ SignUp.jsx
+│ │ │ └─ LoginSignUp.css
+│ │ ├─ Dashboard/
+│ │ │ ├─ index.jsx
+│ │ │ └─ dashboard.css
+│ │ └─ Admin/
+│ │ ├─ AdminDash.jsx
+│ │ └─ AdminDash.css
+│ ├─ App.jsx
+│ └─ index.css
+├─ package.json
+└─ README.md
+
+##
+*git clone<repo>
+*npm install
+*npm run dev

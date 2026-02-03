@@ -1,77 +1,76 @@
 .dashboard {
-  min-height: 100vh;
-  width: 100%;
-  padding: 30px;
-  background-color: #f8fafc;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .dashboard h1 {
-  margin-bottom: 20px;
-  color: #1e3a8a;
+  text-align: center;
+  color: #333;
 }
 
-.dashboard h2 {
-  margin: 20px 0 10px;
-  color: #334155;
-}
-
-.dashboard input {
-  padding: 10px;
-  width: 60%;
-  max-width: 400px;
-  border-radius: 6px;
-  border: 1px solid #cbd5e1;
-}
-
-.dashboard button {
-  margin-left: 10px;
-  padding: 10px 16px;
-  background-color: #2563eb;
-  border: none;
-  border-radius: 6px;
-  color: white;
-  cursor: pointer;
-}
-
-.dashboard button:hover {
-  background-color: #1e40af;
-}
-
-.dashboard ul {
-  margin-top: 10px;
-  list-style: none;
-}
-
-.dashboard li {
-  background: #ffffff;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  border-left: 5px solid #2563eb;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-/* Status colors */
-.dashboard li strong {
-  color: #0f172a;
+.house-info {
+  font-weight: bold;
+  color: #555;
 }
 
 .notification {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  background-color: #dc2626;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 50px;
+  font-size: 1.2em;
+  text-align: right;
+  color: #ff6b6b;
+}
+
+.issue-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+.issue-form button {
+  margin-top: 8px;
+  padding: 12px;
+  width: 100%;
   font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-.logout {
-  margin-top: 30px;
-  background-color: #dc2626;
+.issue-form button:hover {
+  background-color: #0056b3;
 }
 
-.logout:hover {
-  background-color: #b91c1c;
+.announcements ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.announcements li {
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.logout-btn {
+  padding: 12px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #c41d1d;
 }

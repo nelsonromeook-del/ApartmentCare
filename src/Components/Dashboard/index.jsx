@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./dashboard.css";
 
 function UserDash({ user, issues, setIssues, announcements, setToast, setCurrentUser }) {

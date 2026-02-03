@@ -4,20 +4,6 @@
 
 ---
 
-## Table of Contents
-
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Target Users](#target-users)
-- [Problem Being Solved](#problem-being-solved)
-- [Technology Stack](#technology-stack)
-- [File Structure](#file-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Future Enhancements](#future-enhancements)
-
----
-
 ## Project Overview
 
 ApartmentCare centralizes apartment issue reporting and management. Residents can report problems such as water leaks or broken lights, view the status of their reports, and receive announcements from the administrator. Admins can manage tenant issues, post announcements, and update issue statuses.

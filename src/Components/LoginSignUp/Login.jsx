@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginSignUp.css";
 
-function Login() {
+function Login({ setCurrentUser, setToast }) {
   const [houseNumber, setHouseNumber] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -10,12 +10,21 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // TEMP logic
-    if (houseNumber === "ADMIN") {
-      navigate("/admin-dashboard");
-    } else {
-      navigate("/user-dashboard");
-    }
+    setToast("Logging in...");
+
+    setTimeout(() => {
+      // Admin login
+      if (houseNumber === "ADMIN" && password === "admin123") {
+        setToast("Welcome Admin 👋");
+        navigate("/admin-dashboard");
+      } 
+      // User login
+      else {
+        setCurrentUser({ houseNumber });
+        setToast(`Welcome House ${houseNumber}`);
+        navigate("/user-dashboard");
+      }
+    }, 1500);
   };
 
   return (
@@ -24,7 +33,7 @@ function Login() {
 
       <form onSubmit={handleSubmit}>
         <input
-          placeholder="House Number"
+          placeholder="House Number (or ADMIN)"
           value={houseNumber}
           onChange={(e) => setHouseNumber(e.target.value)}
           required

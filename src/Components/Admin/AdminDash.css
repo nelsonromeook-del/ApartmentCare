@@ -1,19 +1,111 @@
-.dashboard button {
-  margin-top: 6px;
+.dashboard {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.dashboard button:nth-child(1) {
-  background-color: #f59e0b;
+.dashboard h1 {
+  text-align: center;
+  color: #333;
 }
 
-.dashboard button:nth-child(2) {
-  background-color: #16a34a;
+.notification {
+  font-size: 1.2em;
+  text-align: right;
+  color: #ff6b6b;
 }
 
-.dashboard button:nth-child(1):hover {
-  background-color: #d97706;
+.issue-form, .announcement-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.dashboard button:nth-child(2):hover {
-  background-color: #15803d;
+.issue-form input, .announcement-form input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+.issue-form button, .announcement-form button {
+  padding: 12px 20px;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.issue-form button:hover, .announcement-form button:hover {
+  background-color: #0056b3;
+}
+
+.tenant-issues ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.tenant-issues li {
+  background-color: #eef2f7;
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.issue-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 10px;
+}
+
+.issue-actions button {
+  padding: 6px 12px;
+  font-size: 0.9em;
+  background-color: #28a745;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.issue-actions button:nth-child(2) {
+  background-color: #ffc107;
+}
+
+.issue-actions button:hover {
+  opacity: 0.9;
+}
+
+.logout-btn {
+  padding: 12px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #c41d1d;
+}
+
+.announcements ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.announcements li {
+  margin-bottom: 6px;
+  color: #444;
 }

@@ -1,29 +1,66 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginSignUp.css";
-
-function Signup() {
+function Signup({ setToast, setCurrentUser }) {
   const [name, setName] = useState("");
   const [houseNumber, setHouseNumber] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Account created!");
-    navigate("/");
+
+    // Save the new user for the dashboard
+    setCurrentUser({
+      name,
+      houseNumber,
+      email,
+    });
+
+    // Show welcome toast
+    setToast(`Welcome ${name}! Your account has been created 🎉`);
+
+    // Redirect to user dashboard
+    navigate("/user-dashboard");
   };
 
   return (
     <div className="auth-container">
-      <h1>Signup</h1>
+      <h1>Create Account</h1>
 
       <form onSubmit={handleSubmit}>
-        <input placeholder="Full Name" onChange={(e) => setName(e.target.value)} />
-        <input placeholder="House Number" onChange={(e) => setHouseNumber(e.target.value)} />
-        <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-        <button>Create Account</button>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <input
+          placeholder="Full Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+
+        <input
+          placeholder="House Number"
+          value={houseNumber}
+          onChange={(e) => setHouseNumber(e.target.value)}
+          required
+        />
+
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
+        <button type="submit">Create Account</button>
       </form>
 
       <p onClick={() => navigate("/")} className="link">

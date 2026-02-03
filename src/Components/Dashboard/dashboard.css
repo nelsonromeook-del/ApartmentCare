@@ -1,77 +1,77 @@
-/* User Dashboard styles */
-.user-dashboard {
-  max-width: 1000px;
-  margin: 30px auto;
+.dashboard {
+  min-height: 100vh;
+  width: 100%;
   padding: 30px;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  background-color: #f8fafc;
 }
 
-.user-dashboard h1 {
-  text-align: center;
-  color: #007bff;
-  margin-bottom: 25px;
+.dashboard h1 {
+  margin-bottom: 20px;
+  color: #1e3a8a;
 }
 
-.post-issue, .issue-list, .alerts {
-  margin-bottom: 30px;
+.dashboard h2 {
+  margin: 20px 0 10px;
+  color: #334155;
 }
 
-.post-issue h2, .issue-list h2, .alerts h2 {
-  color: #333;
-  margin-bottom: 15px;
-}
-
-.post-issue form {
-  display: flex;
-  flex-direction: column;
-}
-
-.post-issue input {
+.dashboard input {
   padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  width: 60%;
+  max-width: 400px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
 }
 
-.post-issue button {
-  background-color: #28a745;
-  color: #fff;
-  border-radius: 5px;
+.dashboard button {
+  margin-left: 10px;
+  padding: 10px 16px;
+  background-color: #2563eb;
   border: none;
-  padding: 10px;
-  font-weight: 600;
-  transition: background 0.3s;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
 }
 
-.post-issue button:hover {
-  background-color: #218838;
+.dashboard button:hover {
+  background-color: #1e40af;
 }
 
-.issue-list ul, .alerts ul {
-  padding-left: 20px;
+.dashboard ul {
+  margin-top: 10px;
+  list-style: none;
 }
 
-.issue-list li {
-  padding: 10px;
-  border-left: 5px solid #007bff;
+.dashboard li {
+  background: #ffffff;
+  padding: 12px;
   margin-bottom: 10px;
-  border-radius: 5px;
-  background-color: #f8f9fa;
+  border-radius: 6px;
+  border-left: 5px solid #2563eb;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
-.status-pending {
-  border-left-color: #ffc107;
+/* Status colors */
+.dashboard li strong {
+  color: #0f172a;
 }
 
-.status-resolved {
-  border-left-color: #28a745;
+.notification {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background-color: #dc2626;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-weight: bold;
 }
 
-.alerts li {
-  background-color: #e9ecef;
-  padding: 8px;
-  margin-bottom: 8px;
-  border-radius: 5px;
+.logout {
+  margin-top: 30px;
+  background-color: #dc2626;
+}
+
+.logout:hover {
+  background-color: #b91c1c;
 }

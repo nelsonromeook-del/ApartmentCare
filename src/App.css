@@ -1,40 +1,4 @@
-/* App-level container styles */
-.app-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-h1, h2 {
-  color: #222;
-}
-
-input, select, textarea {
+.App {
+  min-height: 100vh;
   width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-weight: 600;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
 }

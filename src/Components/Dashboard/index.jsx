@@ -1,77 +1,50 @@
 import { useState } from "react";
-import "./dashboard.css"
- // Make sure to create this CSS file
+import { useNavigate } from "react-router-dom";
+import "./dashboard.css";
 
- function UserDash() {
-  // Dummy initial issues for demonstration
-  const [issues, setIssues] = useState([
-    { id: 1, title: "Leaky faucet", status: "Pending" },
-    { id: 2, title: "Broken light", status: "Resolved" },
-  ]);
+function UserDash({ announcements, issues, setIssues }) {
+  const [text, setText] = useState("");
+  const navigate = useNavigate();
 
-  // State to store new issue input
-  const [newIssue, setNewIssue] = useState("");
+  const postIssue = () => {
+    if (!text) return;
+    setIssues([...issues, { id: Date.now(), description: text, status: "Pending" }]);
+    setText("");
+  };
 
-  // Handle posting a new issue
-  const handlePostIssue = (e) => {
-    e.preventDefault();
-    if (!newIssue) return;
-
-    const issue = {
-      id: Date.now(),
-      title: newIssue,
-      status: "Pending",
-    };
-
-    setIssues((prev) => [...prev, issue]); // Add to the issues list
-    setNewIssue(""); // Clear input
-    alert("Issue posted successfully!");
+  const logout = () => {
+    setTimeout(() => navigate("/"), 4000);
   };
 
   return (
-    <div className="user-dashboard">
-      <h1> ApartmentCare Dashboard</h1>
-      {/* Section: Post a new issue */}
-      <div className="post-issue">
-        <h2>Report a New Issue</h2>
-        <form onSubmit={handlePostIssue}>
-          <input
-            type="text"
-            placeholder="Describe your issue"
-            value={newIssue}
-            onChange={(e) => setNewIssue(e.target.value)}
-            required
-          />
-          <button type="submit">Post Issue</button>
-        </form>
-      </div>
+    <div className="dashboard">
+      <h1>User Dashboard</h1>
 
-      {/* Section: View current issues */}
-      <div className="issue-list">
-        <h2>Your Reported Issues</h2>
-        {issues.length === 0 ? (
-          <p>No issues reported yet.</p>
-        ) : (
-          <ul>
-            {issues.map((issue) => (
-              <li key={issue.id} className={`status-${issue.status.toLowerCase()}`}>
-                <strong>{issue.title}</strong> - <em>{issue.status}</em>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+      <div className="notification">🔔 {announcements.length}</div>
 
-      {/* Section: Alerts / Announcements */}
-      <div className="alerts">
-        <h2>Announcements</h2>
-        <ul>
-          <li>Water maintenance on 5th Feb.</li>
-          <li>Elevator inspection on 7th Feb.</li>
-          <li>Community meeting on 10th Feb.</li>
-        </ul>
-      </div>
+      <h2>Report Issue</h2>
+      <input value={text} onChange={(e) => setText(e.target.value)} />
+      <button onClick={postIssue}>Submit</button>
+
+      <h2>Your Issues</h2>
+      <ul>
+        {issues.map((i) => (
+          <li key={i.id}>
+            {i.description} — <strong>{i.status}</strong>
+          </li>
+        ))}
+      </ul>
+
+      <h2>Announcements</h2>
+      <ul>
+        {announcements.map((a, i) => (
+          <li key={i}>{a}</li>
+        ))}
+      </ul>
+
+      <button onClick={logout}>Logout</button>
     </div>
   );
 }
+
 export default UserDash;

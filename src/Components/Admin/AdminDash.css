@@ -1,0 +1,19 @@
+.dashboard button {
+  margin-top: 6px;
+}
+
+.dashboard button:nth-child(1) {
+  background-color: #f59e0b;
+}
+
+.dashboard button:nth-child(2) {
+  background-color: #16a34a;
+}
+
+.dashboard button:nth-child(1):hover {
+  background-color: #d97706;
+}
+
+.dashboard button:nth-child(2):hover {
+  background-color: #15803d;
+}

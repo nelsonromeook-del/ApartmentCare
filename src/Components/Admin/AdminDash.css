@@ -1,111 +1,94 @@
-.dashboard {
+.admin-dashboard {
   max-width: 900px;
-  margin: 40px auto;
-  padding: 30px 25px;
-  border-radius: 12px;
-  background-color: #f9f9f9;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  font-family: Arial, sans-serif;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Titles */
+.admin-dashboard h1 {
+  color: #4f46e5;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.admin-dashboard h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #1e293b;
+  font-size: 1.25rem;
+}
+
+/* Issue list */
+.issue {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #f1f5f9;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+}
+
+.issue p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.issue select {
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* Announcement form */
+.admin-dashboard form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  margin-top: 2rem;
 }
 
-.dashboard h1 {
-  text-align: center;
-  color: #333;
-}
-
-.notification {
-  font-size: 1.2em;
-  text-align: right;
-  color: #ff6b6b;
-}
-
-.issue-form, .announcement-form {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.issue-form input, .announcement-form input {
-  flex: 1;
-  padding: 12px;
+.admin-dashboard input {
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
   border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1em;
+  border: 1px solid #cbd5e1;
 }
 
-.issue-form button, .announcement-form button {
-  padding: 12px 20px;
+.admin-dashboard button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
   font-weight: bold;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 8px;
+  color: #fff;
+  background-color: #4f46e5;
   cursor: pointer;
+  transition: opacity 0.3s ease;
 }
 
-.issue-form button:hover, .announcement-form button:hover {
-  background-color: #0056b3;
-}
-
-.tenant-issues ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.tenant-issues li {
-  background-color: #eef2f7;
-  margin-bottom: 12px;
-  padding: 12px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-.issue-actions {
-  margin-top: 8px;
-  display: flex;
-  gap: 10px;
-}
-
-.issue-actions button {
-  padding: 6px 12px;
-  font-size: 0.9em;
-  background-color: #28a745;
-  border: none;
-  border-radius: 6px;
-  color: white;
-  cursor: pointer;
-}
-
-.issue-actions button:nth-child(2) {
-  background-color: #ffc107;
-}
-
-.issue-actions button:hover {
+.admin-dashboard button:hover {
   opacity: 0.9;
 }
 
-.logout-btn {
-  padding: 12px;
-  background-color: #ff4d4f;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+/* Logout button */
+.admin-dashboard button.logout {
+  margin-top: 2rem;
+  background-color: #ef4444;
 }
 
-.logout-btn:hover {
-  background-color: #c41d1d;
-}
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-dashboard {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
 
-.announcements ul {
-  list-style-type: disc;
-  padding-left: 20px;
-}
-
-.announcements li {
-  margin-bottom: 6px;
-  color: #444;
+  .issue p, .issue select, .admin-dashboard input, .admin-dashboard button {
+    font-size: 0.95rem;
+  }
 }
